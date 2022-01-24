@@ -1,9 +1,9 @@
 employee_list = [
-    {'name': 'Roberts', 'surname': 'Bralis', 'entry_year': 2017, 'city': 'Ventspils', 'title': 'employee'},
-    {'name': 'Andrejs', 'surname': 'Frisfelds', 'entry_year': 2011, 'city': 'Riga', 'title': 'boss'},
-    {'name': 'Ervins', 'surname': 'Grinfelds', 'entry_year': 2011, 'city': 'Riga', 'title': 'boss'},
-    {'name': 'Jane', 'surname': 'Smith', 'entry_year': 2019, 'city': 'Tallinn', 'title': 'employee'},
-    {'name': 'John', 'surname': 'Doe', 'entry_year': 2020, 'city': 'Skopje', 'title': 'employee'}
+    {'name': 'Roberts', 'surname': 'Bralis', 'entry_year': 2017, 'city': 'Ventspils'},
+    {'name': 'Andrejs', 'surname': 'Frisfelds', 'entry_year': 2011, 'city': 'Riga'},
+    {'name': 'Ervins', 'surname': 'Grinfelds', 'entry_year': 2011, 'city': 'Riga'},
+    {'name': 'Jane', 'surname': 'Smith', 'entry_year': 2019, 'city': 'Tallinn'},
+    {'name': 'John', 'surname': 'Doe', 'entry_year': 2020, 'city': 'Skopje'}
 ]
 
 
@@ -12,7 +12,8 @@ employee_list = [
 def get_bosses(full_list):
     new_list = []
     for index in full_list:
-        if index["title"] == "boss":
+        if index['name'] == 'Andrejs' and index['surname'] == 'Frisfelds' \
+                or index['name'] == 'Ervins' and index['surname'] == 'Grinfelds':
             new_list.append(index)
 
     return new_list
@@ -24,7 +25,7 @@ def get_bosses(full_list):
 def get_employees_by_year(full_list, year):
     year_check = 0
     for index in full_list:
-        if index["entry_year"] == year:
+        if index['entry_year'] == year:
             print(index)
         else:
             year_check += 1
@@ -32,8 +33,8 @@ def get_employees_by_year(full_list, year):
     if year_check == len(full_list):
         raise Exception("Entry year didn't return any employees!")
 
-
 # 3.Add new employee
+
 
 def add_new_employee(full_list, name, surname):
     new_employee = {'name': name, 'surname': surname}
@@ -47,7 +48,8 @@ def add_new_employee(full_list, name, surname):
 
 def print_all_employees(full_list):
     for index in full_list:
-        if index["title"] == "boss":
+        if index['name'] == 'Andrejs' and index['surname'] == 'Frisfelds' \
+                or index['name'] == 'Ervins' and index['surname'] == 'Grinfelds':
             pass
         else:
             print(
@@ -61,8 +63,10 @@ def print_all_employees(full_list):
 
 def print_all(full_list):
     for index in full_list:
-        if index["title"] == "boss":
-            print(f'[Boss] name: {index["name"]}, surname: {index["surname"]}')
+        if index['name'] == 'Andrejs' and index['surname'] == 'Frisfelds' \
+                or index['name'] == 'Ervins' and index['surname'] == 'Grinfelds':
+            print(f'[Boss] name: {index["name"]}, '
+                  f'surname: {index["surname"]}')
         else:
             print(
                 f'[Employee] name: {index["name"]}, '
